@@ -13,6 +13,8 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
+import rest_framework.permissions
+
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 # Quick-start development settings - unsuitable for production
@@ -25,7 +27,7 @@ SECRET_KEY = 'django-insecure--&a_(6od=%cb-d%_&!y!rswqwy*+5te4!$7a68x1gm*u&f_0q(
 DEBUG = True
 
 ALLOWED_HOSTS = [
-"f9f8-197-248-74-179.eu.ngrok.io",
+"a381-197-248-74-179.eu.ngrok.io",
 "127.0.0.1"
 ]
 
@@ -127,6 +129,6 @@ REST_FRAMEWORK = {
     # Use Django's standard `django.contrib.auth` permissions,
     # or allow read-only access for unauthenticated users.
     'DEFAULT_PERMISSION_CLASSES': [
-        'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
+        'rest_framework.permissions.IsAuthenticatedOrReadOnly'
     ]
 }

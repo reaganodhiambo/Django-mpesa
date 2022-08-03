@@ -17,19 +17,18 @@ def lipaNaMpesa(request):
     lipa_url = 'https://sandbox.safaricom.co.ke/mpesa/stkpush/v1/processrequest'
     headers = {"Content-Type": "application/json"}
     headers.update({'Authorization': 'Bearer {0}'.format(accessToken.validToken)})
-    print((headers))
     payload = {
         "BusinessShortCode": mpesaPassword.shortCode,
         "Password": "{0}".format(mpesaPassword.decodePassword),
         "Timestamp": "{0}".format(mpesaPassword.pay_time),
         "TransactionType": "CustomerPayBillOnline",
         "Amount": 1,
-        "PartyA": 254748792401,
+        "PartyA": 254708374149,
         "PartyB": int(mpesaPassword.shortCode),
-        "PhoneNumber": 254748792401,
-        "CallBackURL": "https://f696-197-248-74-179.eu.ngrok.io/lipa",
-        "AccountReference": "CompanyXLTD",
-        "TransactionDesc": "Payment of X"
+        "PhoneNumber": 254708374149,
+        "CallBackURL": "https://e847-197-248-74-179.eu.ngrok.io/api/payments/lnm/",
+        "AccountReference": "SuperBridge",
+        "TransactionDesc": "Payment of Test"
     }
     response = requests.post(lipa_url, json=payload, headers=headers)
 
@@ -43,8 +42,8 @@ def c2b(request):
 
     payload = {
         "ShortCode": 600992,
-        "ConfirmationURL": "https://f9f8-197-248-74-179.eu.ngrok.io/confirm",
-        "ValidationURL": "https://f9f8-197-248-74-179.eu.ngrok.io/validate",
+        "ConfirmationURL": "https://e847-197-248-74-179.eu.ngrok.io/api/payments/lnm/",
+        "ValidationURL": "https://e847-197-248-74-179.eu.ngrok.io/api/payments/lnm/",
         "ResponseType": "Completed",
 
     }
