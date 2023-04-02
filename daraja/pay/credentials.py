@@ -6,8 +6,8 @@ import requests
 
 
 class c2bCredentials:
-    consumer_key = 'sGSEBLwUwd17JzGuvKNiK0N63nAqG7vB'
-    consumer_secret = 'd8hW2JOotzAVc0SG'
+    consumer_key = 'CONSUMER_KEY'
+    consumer_secret = 'CONSUMER_SECRET'
     api_url = 'https://sandbox.safaricom.co.ke/oauth/v1/generate?grant_type=client_credentials'
 
 
