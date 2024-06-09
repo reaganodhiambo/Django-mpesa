@@ -1,8 +1,7 @@
 import os
-from dotenv import load_dotenv
 from pathlib import Path
+from dotenv import load_dotenv
 
-# load environment variables from .env file
 load_dotenv()
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -15,7 +14,7 @@ if ENVIRONMENT == "development":
 else:
     DEBUG = False
 
-ALLOWED_HOSTS = os.getenv(ALLOWED_HOSTS).split(",")
+ALLOWED_HOSTS = os.getenv("ALLOWED_HOSTS").split(",")
 
 # Application definition
 
@@ -27,7 +26,7 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "pay",
-    "mpesa",
+    "rest_framework",
 ]
 APPEND_SLASH = False
 MIDDLEWARE = [

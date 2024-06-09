@@ -48,8 +48,7 @@ def c2b(request):
 
     }
 
-    response = requests.post('https://sandbox.safaricom.co.ke/mpesa/c2b/v1/registerurl', headers=headers,
-                             json=payload)
+    response = requests.post('https://sandbox.safaricom.co.ke/mpesa/c2b/v1/registerurl', headers=headers,json=payload)
     return HttpResponse(response.text)
 
 def new(request):

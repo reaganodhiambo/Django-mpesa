@@ -1,14 +1,16 @@
-import base64
+import os
 import json
-from datetime import datetime
-
+import base64
 import requests
+from datetime import datetime
+from dotenv import load_dotenv
+load_dotenv()
 
 
 class c2bCredentials:
-    consumer_key = 'CONSUMER_KEY'
-    consumer_secret = 'CONSUMER_SECRET'
-    api_url = 'https://sandbox.safaricom.co.ke/oauth/v1/generate?grant_type=client_credentials'
+    consumer_key = os.getenv('CONSUMER_KEY')
+    consumer_secret = os.getenv('CONSUMER_SECRET')
+    api_url = os.getenv('api_url')
 
 
 class accessToken:
@@ -21,7 +23,7 @@ class mpesaPassword:
     pay_time = datetime.now().strftime('%Y%m%d%H%M%S')
     shortCode = "174379"
     Test_c2b_shortcode = "174379"
-    passkey = 'bfb279f9aa9bdbcf158e97dd71a467cd2e0c893059b10f78e6b72ada1ed2c919'
+    passkey = os.envget('passkey')
 
     dataToEncode = shortCode + passkey + pay_time
     onlinePassword = base64.b64encode(dataToEncode.encode())
