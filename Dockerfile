@@ -12,4 +12,4 @@ COPY . /backend/
 
 EXPOSE 8000
 
-CMD ["python", "manage.py", "runserver"]
+CMD ["sh", "/start.sh"]
