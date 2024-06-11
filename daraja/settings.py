@@ -25,7 +25,6 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    "pay",
     "rest_framework",
 ]
 APPEND_SLASH = False
@@ -66,7 +65,7 @@ DATABASES = {
     "default": {
         "ENGINE": os.getenv("db_engine"),
         "NAME": os.getenv("db_name"),
-        "HOST": os.getenv("db_host"),
+        "HOST": "db",
         "USER": os.getenv("db_user"),
         "PASSWORD": os.getenv("db_password"),
         "PORT": os.getenv("db_port"),
