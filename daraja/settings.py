@@ -14,7 +14,8 @@ if ENVIRONMENT == "development":
 else:
     DEBUG = False
 
-ALLOWED_HOSTS = os.getenv("ALLOWED_HOSTS").split(",")
+# ALLOWED_HOSTS = os.getenv("ALLOWED_HOSTS").split(",")
+ALLOWED_HOSTS = ['0.0.0.0', '127.0.0.1','localhost']
 
 # Application definition
 
@@ -25,8 +26,11 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "phonenumber_field",
     "rest_framework",
+    "api",
 ]
+
 APPEND_SLASH = False
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
@@ -65,7 +69,8 @@ DATABASES = {
     "default": {
         "ENGINE": os.getenv("db_engine"),
         "NAME": os.getenv("db_name"),
-        "HOST": "db",
+        "HOST": os.getenv("db_host"),
+        # "HOST": 'db',
         "USER": os.getenv("db_user"),
         "PASSWORD": os.getenv("db_password"),
         "PORT": os.getenv("db_port"),
@@ -95,7 +100,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = "en-us"
 
-TIME_ZONE = "UTC"
+TIME_ZONE = "Africa/Nairobi"
 
 USE_I18N = True
 
