@@ -1,7 +1,7 @@
 version: '3.11'
 
 services:
-  dadb:
+  db:
     container_name: mysql_db
     image:  mysql
     restart: always
@@ -27,6 +27,6 @@ services:
     env_file:
       - .env
     depends_on:
-      - dadb
+      - db
     links:
-      - dadb
+      - db

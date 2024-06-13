@@ -11,5 +11,6 @@ RUN pip install -r requirements.txt
 COPY . /backend/
 
 EXPOSE 8000
-
-CMD ["sh", "/start.sh"]
+ADD start.sh /start.sh
+RUN chmod a+x /start.sh
+ENTRYPOINT ["/start.sh" ]
