@@ -76,10 +76,11 @@ def stk_push(amount,phonenumber):
 
     if response.status_code == 200:
         data = response.json()
-        print(data["CustomerMessage"])
-        return response.json
+        # print(data["CustomerMessage"])
+        return data
     else:
         raise Exception(f"Failed to send STK push: {response.text}")
+
 
 
 # stk_push(1, 254748792401)

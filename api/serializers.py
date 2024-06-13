@@ -1,18 +1,18 @@
 from rest_framework import serializers
-from .models import Transation
+from .models import Transation, ResponseBody
 from .validators import validate_phone_number
 
 
 class StkPushSerializer(serializers.ModelSerializer):
-    # phone_number = serializers.CharField(max_length=44)
-    # amount = serializers.DecimalField(max_digits=10, decimal_places=2)
-    # # account_reference = serializers.CharField(max_length=50)
-    # # transaction_description = serializers.CharField(max_length=100)
-
     class Meta:
         model = Transation
-        fields = [
-            "phone_number",
-            "amount",
-        ]
-        read_only_fields = ["id", "created_at", "updated_at"]
+        fields = "__all__"
+
+
+class ResponseBodySerializer(serializers.Serializer):
+    class Meta:
+        model = ResponseBody
+        fields = "__all__"
+
+    def create(self, validated_data):
+        return ResponseBody.objects.create(**validated_data)

@@ -1,6 +1,6 @@
 from django.core.exceptions import ValidationError
-def validate_phone_number():
-    """A very Basic validation to remove the preceding + or replace the 0 with 254"""
+def validate_phone_number(phone_number):
+    """remove the preceeding + or replace the 0 with 254"""
     if phone_number[0] == "+":
         phone_number = phone_number[1:]
     if phone_number[0] == "0":
