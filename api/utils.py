@@ -35,7 +35,7 @@ def generate_access_token():
         raise Exception(f"Failed to generate access token: {response.text}")
 
 
-def generate_stk_password():
+def generate_password():
     """ """
     shortcode = os.getenv("SHORTCODE")
     passkey = os.getenv("PASSKEY")
@@ -60,7 +60,7 @@ def stk_push(amount,phonenumber):
 
     payload = {
         "BusinessShortCode": os.getenv("SHORTCODE"),
-        "Password": generate_stk_password(),
+        "Password": generate_password(),
         "Timestamp": f"{datetime.datetime.now().strftime('%Y%m%d%H%M%S')}",
         "TransactionType": "CustomerPayBillOnline",
         "Amount": amount,
@@ -68,19 +68,17 @@ def stk_push(amount,phonenumber):
         "PartyB": 174379,
         "PhoneNumber": phonenumber,
         "CallBackURL": os.getenv("CALLBACK_URL"),
-        "AccountReference": "CompanyXLTD",
-        "TransactionDesc": "Payment of X",
+        "AccountReference": "Fadhelah",
+        "TransactionDesc": "Nimemaliza",
     }
 
     response = requests.post(api_url, json=payload, headers=headers)
 
     if response.status_code == 200:
         data = response.json()
-        # print(data["CustomerMessage"])
+        print(data["CustomerMessage"])
         return data
     else:
         raise Exception(f"Failed to send STK push: {response.text}")
 
-
-
-# stk_push(1, 254748792401)
+# stk_push(1,254759398194)

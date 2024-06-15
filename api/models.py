@@ -12,7 +12,12 @@ class AbstractBaseModel(models.Model):
 
 
 class Transation(AbstractBaseModel):
-    phone_number = models.CharField(max_length=15, validators=[validate_phone_number])
+    """
+    Store phone_number, amount and receipt number
+    received from ResponseBody upon a successfull Transaction
+    """
+
+    phone_number = models.CharField(max_length=12, validators=[validate_phone_number])
     amount = models.PositiveIntegerField(validators=[MinValueValidator(1)])
     receipt_no = models.CharField(max_length=20, unique=True)
 
@@ -21,4 +26,7 @@ class Transation(AbstractBaseModel):
 
 
 class ResponseBody(AbstractBaseModel):
+    """
+    Data received in the callback url
+    """
     body = models.JSONField()
